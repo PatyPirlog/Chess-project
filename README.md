@@ -15,12 +15,12 @@ The chess table is implemented in Board.java as a matrix of both positive and ne
 The abstract class Piece is used in modeling the chess pieces, using the method availableMoves. The Pawn class, and also the other classes which extend the Piece, implement the availableMoves method which returns an array that contains the available moves of a specific piece regarding its color and its placement on the chess table. The Move class is used for implementing the movement on the chess table, storing the coordinates of the new position after moving a piece. 
 
 # Authors and their responsabilities
-  Anghel Cristiana
-  Barbu Andreea
-  Pirlog Patricia
-  Engine.java - we all contributed to the implementation of it(including debugging).
-  Piece.java, Move.java, Pawn.java and the rest of the pieces classes - Barbu Andreea and Pirlog Patricia (including comments and coding style)
-  Board.java, Main.java, Makefile - Anghel Cristiana 
+  Anghel Cristiana  
+  Barbu Andreea  
+  Pirlog Patricia  
+  Engine.java - we all contributed to the implementation of it(including debugging).  
+  Piece.java, Move.java, Pawn.java and the rest of the pieces classes - Barbu Andreea and Pirlog Patricia (including comments and coding style)  
+  Board.java, Main.java, Makefile - Anghel Cristiana   
 
 # Testing the application
 xboard -debug -fcp "java Main" -scp "fairymax" -secondInitString "new\nrandom\nsd 2\n" -tc 5 -inc 2 -autoCallFlag true -mg 10 -sgf partide.txt -reuseFirst false
