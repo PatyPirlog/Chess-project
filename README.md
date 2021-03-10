@@ -1,12 +1,12 @@
 # Chess-project
-Chess game implemented in Java using Xboard 4.9; artificial intelligence capable of playing chess
+Chess game implemented in Java using Xboard 4.9; artificial intelligence capable of playing chess  
   
      
 # Compilation Instructions
 
-make build: compiles the code using javac *.java
-make run: opens the Xboard with the started engine (prior make build command required)
-make clean: removes all the *.class files
+make build: compiles the code using javac *.java  
+make run: opens the Xboard with the started engine (prior make build command required)  
+make clean: removes all the *.class files  
 
 # Project Description
 
