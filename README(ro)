@@ -1,0 +1,73 @@
+			-Instructiuni de Compilare-
+
+make build: compileaza codul folosint javac *.java
+
+make run: deschide xboard cu engine-ul pornit (este necesar sa
+fie rulata comanda make build inainte)
+
+make clean: sterge fisierele *.class rezultate in urma rularii
+lui build
+
+			-Surse de Inspiratie & Documentatie-
+
+http://en.wikipedia.org/wiki/Rules_of_chess
+https://www.gnu.org/software/xboard/engine-intf.html
+
+			-Structura Proiectului-
+
+Din Main.java porneste engine-ul (Engine.java) in NormalMode unde
+intra intr-un loop infinit in care asteapta comenzi de la xboard si
+apoi incepe sa joace. Atunci cand primeste comanda "force" intra
+intr-o metoda separata in care poate primi miscari fara sa
+trimita altele si din care iese cu comanda "white/black" + "go"
+sau "new" (adica revine in NormalMode). Engine.java realizeaza
+comunicarea xboard<->engine, dar tot aici aplica mutarile
+primite de la xboard si trimite mutarile proprii.
+In Board.java este implementata tabla de joc sub forma unei matrice
+unde numerele pozitive si negative reprezinta piesele albe, respectiv
+negre, iar 0-urile sunt spatiile goale de pe tabla. "color" reprezinta
+culoarea pe care o joaca engine-ul(valoare pozitiva => alb, valoare
+negativa => negru).
+Am creat clasa abstracta Piece utilizata in modelarea pieselor tablei
+de sah, cu metoda abstracta availableMoves. Clasa Pawn, precum si
+celalalte clase care extind Piece, implementeaza metoda availableMoves
+care returneaza un array de mutari posibile ale piesei in functie de
+culoare si pozitia pe tabla. Clasa Move modeleaza o miscare pe tabla
+de sah, retind coordonatele noii pozitii dupa mutarea unei piese.
+
+			-Responsabilitatea Membrilor-
+
+In Engine.java am lucrat impreuna toate 3 si am rezolvat problemele
+de debugging si erorile aparute. 			
+In Piece.java, Move.java Pawn.java si restul pieselor.java au lucrat
+Barbu Andreea si Pirlog Patricia + comentariile din cod
+In Board.java si Main.java a lucrat Anghel Cristiana + README si
+Makefile.
+
+				-Mentiuni-
+
+Pentru Etapa1 am implementat doar miscarile pionilor (acestia merg
+in fata si ataca pe diagonale atunci cand e posibil). 
+Nu am implementat sa se opreasca atunci cand regele este in sah,
+acesta va da Illegal Move incercand sa mute pionul(din forum am inteles
+ca este suficient pentru Etapa1).
+Am lucrat in Xboard versiunea 4.9, deoarece pe 4.8 nu am reusit
+sa o instalam datorita erorilor aparute la instalare (sistem de
+operare: Ubuntu 18.04 pe 64 de biti).
+Am folosit WhatsApp pentru a trimite fisierele intre noi si pentru
+a comunica, deci nu a mai fost nevoie sa scriem in Team_Log
+modificarile facute intre noi.
+
+Etapa2 - TheCakeIsALie
+
+Am implementat toate regulile jocului, nu am realizat un algoritm
+minimax.
+Se adauga toate miscarile posibile intr-un ArrayList de ArrayList<Move>
+si apoi se elimina msicarile care ar pune regele in sah sau care lasa
+regele in sah.
+
+Pentru teste am rulat cu comanda: xboard -debug -fcp "java Main" -scp "fairymax" -secondInitString "new\nrandom\nsd 2\n" -tc 5 -inc 2 -autoCallFlag true -mg 10 -sgf partide.txt -reuseFirst false
+
+
+
+									Echipa: TheCakeIsALie
